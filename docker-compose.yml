@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  mysqldb:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123
+      - MYSQL_DATABASE=Test
+      - MYSQL_USER=Ferwan
+      - MYSQL_PASSWORD=mypassword
+    ports:
+      - 5000:3306
+
+  nodeapp:
+    build: . 
+    depends_on:
+      - mysqldb
+    links:
+      - mysqldb
+    ports:
+      - 3000:4000
