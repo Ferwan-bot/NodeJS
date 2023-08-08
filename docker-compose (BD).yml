@@ -1,0 +1,13 @@
+version: '3'
+services:
+  db_container:
+    image: mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - container-network
+
+networks:
+  container-network:
+    external: true
+    driver: bridge
