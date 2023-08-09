@@ -3,13 +3,13 @@ import { createPool } from 'mysql2/promise';
 
 const app = express();
 const pool = createPool({
-    host:'mysqldb',
+    host:'192.168.100.10',
     port:3306,
     user: 'Ferwan',
     password: 'mypassword'
 })
 app.get('/', (req, res) => {
-    res.json("hello from DOCKER")
+    res.json("hello from DOCKER VM")
 });
 
 app.get('/ping', async(req, res) => {
